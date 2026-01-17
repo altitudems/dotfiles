@@ -27,6 +27,10 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
   if ! command -v bun >/dev/null 2>&1; then
     brew install bun
   fi
+
+  if [[ -f "$HOME/dotfiles/Brewfile" ]]; then
+    brew bundle --file "$HOME/dotfiles/Brewfile"
+  fi
 elif [[ "$OS_NAME" == "Linux" ]]; then
   if [[ -r /etc/os-release ]]; then
     . /etc/os-release
@@ -50,6 +54,10 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
     if ! command -v bun >/dev/null 2>&1; then
       curl -fsSL https://bun.sh/install | bash
+    fi
+
+    if [[ -f "$HOME/dotfiles/Brewfile" ]] && command -v brew >/dev/null 2>&1; then
+      brew bundle --file "$HOME/dotfiles/Brewfile"
     fi
 
     echo "Nerd Fonts installed via fonts-nerd-fonts (if available)."
