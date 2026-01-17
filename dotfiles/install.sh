@@ -9,8 +9,12 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
     exit 1
   fi
 
-  brew install git zsh fzf eza bat yt-dlp infisical/get-cli/infisical
-  brew install --cask font-gohufont-nerd-font
+  if [[ -f "$HOME/dotfiles/Brewfile" ]]; then
+    brew bundle --file "$HOME/dotfiles/Brewfile"
+  else
+    echo "Brewfile not found at ~/dotfiles/Brewfile."
+    exit 1
+  fi
 
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -20,17 +24,6 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
   fi
 
-  if ! command -v pnpm >/dev/null 2>&1; then
-    brew install pnpm
-  fi
-
-  if ! command -v bun >/dev/null 2>&1; then
-    brew install bun
-  fi
-
-  if [[ -f "$HOME/dotfiles/Brewfile" ]]; then
-    brew bundle --file "$HOME/dotfiles/Brewfile"
-  fi
 elif [[ "$OS_NAME" == "Linux" ]]; then
   if [[ -r /etc/os-release ]]; then
     . /etc/os-release
@@ -38,7 +31,7 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update
-    sudo apt-get install -y git zsh curl fzf bat eza yt-dlp fonts-nerd-fonts
+    sudo apt-get install -y git zsh curl fonts-nerd-fonts
 
     if ! command -v infisical >/dev/null 2>&1; then
       curl -1sLf 'https://artifacts-cli.infisical.com/setup.deb.sh' | sudo -E bash
@@ -54,17 +47,6 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
       git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
     fi
 
-    if ! command -v pnpm >/dev/null 2>&1; then
-      curl -fsSL https://get.pnpm.io/install.sh | sh -
-    fi
-
-    if ! command -v bun >/dev/null 2>&1; then
-      curl -fsSL https://bun.sh/install | bash
-    fi
-
-    if [[ -f "$HOME/dotfiles/Brewfile" ]] && command -v brew >/dev/null 2>&1; then
-      brew bundle --file "$HOME/dotfiles/Brewfile"
-    fi
 
     echo "Nerd Fonts installed via fonts-nerd-fonts (if available)."
   else
