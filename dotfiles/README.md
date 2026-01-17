@@ -48,6 +48,12 @@ brew bundle --file ~/dotfiles/Brewfile
 brew bundle dump --force --file ~/dotfiles/Brewfile
 ```
 
+Infisical helper (project: dotfiles, env: dev):
+
+```bash
+irun env
+```
+
 ## Notes
 - The repo is a bare git repository at `~/.dotfiles` with work tree `$HOME`.
 - `status.showUntrackedFiles` is disabled to keep output clean.

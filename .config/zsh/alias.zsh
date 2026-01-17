@@ -11,3 +11,9 @@ alias python=python3
 alias y=yt-dlp -f "bestvideo[height<=720]+bestaudio/best"
 alias ls="eza -lah --icons"
 alias l="eza -ah --icons"
+
+infisical_run() {
+  infisical run --projectId "9b6ef6ff-144d-4211-9de6-085fba02170c" --env "dev" -- "$@"
+}
+
+alias irun=infisical_run

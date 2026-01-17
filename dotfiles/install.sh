@@ -9,7 +9,7 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
     exit 1
   fi
 
-  brew install git zsh fzf eza bat yt-dlp
+  brew install git zsh fzf eza bat yt-dlp infisical/get-cli/infisical
   brew install --cask font-gohufont-nerd-font
 
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
@@ -39,6 +39,12 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update
     sudo apt-get install -y git zsh curl fzf bat eza yt-dlp fonts-nerd-fonts
+
+    if ! command -v infisical >/dev/null 2>&1; then
+      curl -1sLf 'https://artifacts-cli.infisical.com/setup.deb.sh' | sudo -E bash
+      sudo apt-get update
+      sudo apt-get install -y infisical
+    fi
 
     if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
       RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
