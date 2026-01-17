@@ -1,0 +1,23 @@
+[font]
+size = 12.0
+
+[font.normal]
+family = "GohuFont uni14 Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "GohuFont uni14 Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "GohuFont uni14 Nerd Font"
+style = "Italic"
+
+[window]
+padding = { x = 10, y = 10 }
+decorations = "full"
+opacity = 1.0
+startup_mode = "Windowed"
+
+[scrolling]
+history = 10000
