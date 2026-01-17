@@ -35,7 +35,7 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update
-    sudo apt-get install -y build-essential curl file git fonts-nerd-fonts
+    sudo apt-get install -y build-essential curl file git fonts-nerd-fonts gpg
 
     if ! command -v brew >/dev/null 2>&1; then
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -63,6 +63,17 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
       curl -1sLf 'https://artifacts-cli.infisical.com/setup.deb.sh' | sudo -E bash
       sudo apt-get update
       sudo apt-get install -y infisical
+    fi
+
+    if ! command -v code >/dev/null 2>&1; then
+      curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/packages.microsoft.gpg >/dev/null
+      echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list >/dev/null
+      sudo apt-get update
+      sudo apt-get install -y code
+    fi
+
+    if ! command -v zed >/dev/null 2>&1; then
+      curl -f https://zed.dev/install.sh | sh
     fi
 
     if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
