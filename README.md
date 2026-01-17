@@ -31,4 +31,5 @@ config push
 ## Notes
 - The repo is a bare git repository at `~/.dotfiles` with work tree `$HOME`.
 - `status.showUntrackedFiles` is disabled to keep output clean.
+- `dotfiles-bootstrap.sh` only backs up conflicting files on first run.
 - Sensitive files (e.g., `~/.ssh`, `~/.netrc`) should remain untracked.
