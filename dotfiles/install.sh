@@ -31,7 +31,23 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update
-    sudo apt-get install -y git zsh curl fonts-nerd-fonts
+    sudo apt-get install -y build-essential curl file git fonts-nerd-fonts
+
+    if ! command -v brew >/dev/null 2>&1; then
+      NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+      elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+        eval "$("$HOME/.linuxbrew/bin/brew" shellenv)"
+      fi
+    fi
+
+    if command -v brew >/dev/null 2>&1; then
+      brew bundle --file "$HOME/dotfiles/Brewfile.linux"
+    else
+      echo "Homebrew failed to install. Install it manually and re-run."
+      exit 1
+    fi
 
     if ! command -v infisical >/dev/null 2>&1; then
       curl -1sLf 'https://artifacts-cli.infisical.com/setup.deb.sh' | sudo -E bash

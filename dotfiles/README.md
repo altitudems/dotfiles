@@ -9,7 +9,7 @@ Bare repo dotfiles setup using `git --bare` and a `config` alias.
 curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles/install.sh | bash
 ```
 
-Debian/Ubuntu: installs Nerd Fonts via `fonts-nerd-fonts` when available.
+Debian/Ubuntu: installs Linuxbrew and uses `Brewfile.linux`, plus Nerd Fonts via `fonts-nerd-fonts`.
 
 2) Bootstrap dotfiles:
 
