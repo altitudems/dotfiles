@@ -57,6 +57,13 @@ asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
 asdf install
 ```
 
+Python (uv):
+
+```bash
+uv python install 3.12
+uv venv
+```
+
 Infisical helper (project: dotfiles, env: dev):
 
 ```bash
