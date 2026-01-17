@@ -2,8 +2,8 @@
 
 Bare repo dotfiles setup using `git --bare` and a `config` alias.
 
-## Install
-Install shell tooling, fonts, and common tools:
+## New Machine
+1) Install shell tooling, fonts, and common tools:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles/install.sh | bash
@@ -11,8 +11,21 @@ curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles/i
 
 Debian/Ubuntu: installs Nerd Fonts via `fonts-nerd-fonts` when available.
 
+2) Bootstrap dotfiles:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles/bootstrap.sh | bash
+```
+
+## Install
+Run this anytime to update tools and fonts:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles/install.sh | bash
+```
+
 ## Bootstrap
-Run this on a new machine after install:
+Run this anytime to sync dotfiles into `$HOME`:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles/bootstrap.sh | bash
