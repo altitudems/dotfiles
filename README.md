@@ -9,6 +9,8 @@ Install shell tooling, fonts, and common tools:
 curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/install.sh | bash
 ```
 
+Debian/Ubuntu: installs Nerd Fonts via `fonts-nerd-fonts` when available.
+
 ## Bootstrap
 Run this on a new machine after install:
 

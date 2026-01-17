@@ -28,9 +28,13 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
     brew install bun
   fi
 elif [[ "$OS_NAME" == "Linux" ]]; then
+  if [[ -r /etc/os-release ]]; then
+    . /etc/os-release
+  fi
+
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update
-    sudo apt-get install -y git zsh curl fzf bat eza yt-dlp
+    sudo apt-get install -y git zsh curl fzf bat eza yt-dlp fonts-nerd-fonts
 
     if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
       RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -48,9 +52,13 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
       curl -fsSL https://bun.sh/install | bash
     fi
 
-    echo "Install GohuFont uni14 Nerd Font manually on Linux."
+    echo "Nerd Fonts installed via fonts-nerd-fonts (if available)."
   else
-    echo "Unsupported Linux package manager. Please install dependencies manually."
+    if [[ -n "${ID:-}" ]]; then
+      echo "Unsupported Linux distro: $ID. Please install dependencies manually."
+    else
+      echo "Unsupported Linux package manager. Please install dependencies manually."
+    fi
     exit 1
   fi
 else
