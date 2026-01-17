@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnail
+._*
+
+# Spotlight
+.Spotlight-V100
+.Trashes
+
+# Temporary
+*.swp
+*.swo
+*.tmp
+
+# Shell history/logs
+.zsh_history
+.zsh_sessions/
+
+# Local caches/state
+.cache/
+.local/share/
+.npm/
+.pnpm-state/
+.bun/
+.nvm/
+.pyenv/
+
+# Editors/tools
+.vscode/
+.ServiceHub/
+
+# Secrets (do not track)
+.netrc
+.ssh/
+.security.zsh
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
