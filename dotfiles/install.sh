@@ -37,6 +37,10 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
     sudo apt-get update
     sudo apt-get install -y build-essential curl file git fonts-nerd-fonts gpg
 
+    if [[ ! -d "$HOME/.asdf" ]]; then
+      git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" --branch v0.14.0
+    fi
+
     if ! command -v brew >/dev/null 2>&1; then
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then

@@ -129,7 +129,6 @@ fi
 
 
 source ~/.config/zsh/alias.zsh
-source ~/.config/zsh/security.zsh
 source ~/.config/zsh/node.zsh
 # source ~/.config/zsh/python.zsh
 
