@@ -2,6 +2,7 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+.Trash
 
 # Thumbnail
 ._*
@@ -32,6 +33,20 @@
 .vscode/
 .ServiceHub/
 
+# User folders (do not track)
+Desktop/
+Documents/
+Downloads/
+Movies/
+Music/
+Pictures/
+Public/
+Library/
+Applications/
+
+# Other Apps
+OrbStack/
+
 # Secrets (do not track)
 .netrc
 .ssh/
@@ -39,3 +54,28 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Common folders
+code/
+temp/
+bin/
+.yarn/
+.orbstack/
+.rest-client/
+.dotnet
+.gemini
+.kube
+.nuget
+.ollama
+.local
+.docker
+.continue
+.templateengine
+.swt
+.storybook
+.cursor
+.cloudflared
+.aspnet/
+.antigravity
+.aider
+.codex
