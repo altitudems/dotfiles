@@ -2,8 +2,15 @@
 
 Bare repo dotfiles setup using `git --bare` and a `config` alias.
 
+## Install
+Install shell tooling, fonts, and common tools:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/install.sh | bash
+```
+
 ## Bootstrap
-Run this on a new machine:
+Run this on a new machine after install:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles-bootstrap.sh | bash
