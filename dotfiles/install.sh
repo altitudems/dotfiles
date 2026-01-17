@@ -20,6 +20,15 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
     brew bundle --file "$HOME/dotfiles/Brewfile.macos"
   fi
 
+  if command -v asdf >/dev/null 2>&1; then
+    asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git || true
+    asdf plugin add golang https://github.com/asdf-community/asdf-golang.git || true
+    asdf install nodejs latest
+    asdf install golang latest
+    asdf global nodejs latest
+    asdf global golang latest
+  fi
+
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   fi
@@ -78,6 +87,19 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
     if ! command -v zed >/dev/null 2>&1; then
       curl -f https://zed.dev/install.sh | sh
+    fi
+
+    if [[ -s "$HOME/.asdf/asdf.sh" ]]; then
+      . "$HOME/.asdf/asdf.sh"
+    fi
+
+    if command -v asdf >/dev/null 2>&1; then
+      asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git || true
+      asdf plugin add golang https://github.com/asdf-community/asdf-golang.git || true
+      asdf install nodejs latest
+      asdf install golang latest
+      asdf global nodejs latest
+      asdf global golang latest
     fi
 
     if [[ ! -d "$HOME/.oh-my-zsh" ]]; then

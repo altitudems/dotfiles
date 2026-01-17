@@ -49,7 +49,7 @@ brew bundle --file ~/dotfiles/Brewfile.macos
 brew bundle --file ~/dotfiles/Brewfile.linux
 ```
 
-asdf (Node + Go example):
+asdf (Node + Go):
 
 ```bash
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
