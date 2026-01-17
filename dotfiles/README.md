@@ -49,11 +49,12 @@ brew bundle --file ~/dotfiles/Brewfile.macos
 brew bundle --file ~/dotfiles/Brewfile.linux
 ```
 
-asdf (Node LTS + Go latest):
+asdf (Node + Go + .NET):
 
 ```bash
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+asdf plugin add dotnet-core https://github.com/emersonsoares/asdf-dotnet-core.git
 asdf install
 ```
 
