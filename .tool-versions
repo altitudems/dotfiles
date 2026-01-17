@@ -1,2 +1,2 @@
-nodejs lts
-golang latest
+nodejs 24.13.0
+golang 1.25.6
