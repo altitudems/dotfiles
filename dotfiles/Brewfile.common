@@ -26,5 +26,3 @@ brew "watch"
 brew "yt-dlp"
 brew "zsh"
 brew "anomalyco/tap/opencode"
-
-cask "font-gohufont-nerd-font"

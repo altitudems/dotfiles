@@ -9,7 +9,7 @@ Bare repo dotfiles setup using `git --bare` and a `config` alias.
 curl -fsSL https://raw.githubusercontent.com/altitudems/dotfiles/main/dotfiles/install.sh | bash
 ```
 
-Debian/Ubuntu: installs Linuxbrew and uses `Brewfile.linux`, plus Nerd Fonts via `fonts-nerd-fonts`.
+Debian/Ubuntu: installs Linuxbrew and uses `Brewfile.common` + `Brewfile.linux`, plus Nerd Fonts via `fonts-nerd-fonts`.
 
 2) Bootstrap dotfiles:
 
@@ -41,11 +41,12 @@ config commit -m "Update zshrc"
 config push
 ```
 
-Manage Homebrew packages with the Brewfile:
+Manage Homebrew packages with the Brewfiles:
 
 ```bash
-brew bundle --file ~/dotfiles/Brewfile
-brew bundle dump --force --file ~/dotfiles/Brewfile
+brew bundle --file ~/dotfiles/Brewfile.common
+brew bundle --file ~/dotfiles/Brewfile.macos
+brew bundle --file ~/dotfiles/Brewfile.linux
 ```
 
 Infisical helper (project: dotfiles, env: dev):

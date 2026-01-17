@@ -9,11 +9,15 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
     exit 1
   fi
 
-  if [[ -f "$HOME/dotfiles/Brewfile" ]]; then
-    brew bundle --file "$HOME/dotfiles/Brewfile"
+  if [[ -f "$HOME/dotfiles/Brewfile.common" ]]; then
+    brew bundle --file "$HOME/dotfiles/Brewfile.common"
   else
-    echo "Brewfile not found at ~/dotfiles/Brewfile."
+    echo "Brewfile not found at ~/dotfiles/Brewfile.common."
     exit 1
+  fi
+
+  if [[ -f "$HOME/dotfiles/Brewfile.macos" ]]; then
+    brew bundle --file "$HOME/dotfiles/Brewfile.macos"
   fi
 
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
@@ -43,7 +47,13 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
     fi
 
     if command -v brew >/dev/null 2>&1; then
-      brew bundle --file "$HOME/dotfiles/Brewfile.linux"
+      if [[ -f "$HOME/dotfiles/Brewfile.common" ]]; then
+        brew bundle --file "$HOME/dotfiles/Brewfile.common"
+      fi
+
+      if [[ -f "$HOME/dotfiles/Brewfile.linux" ]]; then
+        brew bundle --file "$HOME/dotfiles/Brewfile.linux"
+      fi
     else
       echo "Homebrew failed to install. Install it manually and re-run."
       exit 1
