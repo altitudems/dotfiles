@@ -49,15 +49,12 @@ brew bundle --file ~/dotfiles/Brewfile.macos
 brew bundle --file ~/dotfiles/Brewfile.linux
 ```
 
-asdf (Node + Go):
+asdf (Node LTS + Go latest):
 
 ```bash
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
-asdf install nodejs latest
-asdf install golang latest
-asdf global nodejs latest
-asdf global golang latest
+asdf install
 ```
 
 Infisical helper (project: dotfiles, env: dev):

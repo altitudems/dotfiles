@@ -23,10 +23,7 @@ if [[ "$OS_NAME" == "Darwin" ]]; then
   if command -v asdf >/dev/null 2>&1; then
     asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git || true
     asdf plugin add golang https://github.com/asdf-community/asdf-golang.git || true
-    asdf install nodejs latest
-    asdf install golang latest
-    asdf global nodejs latest
-    asdf global golang latest
+    asdf install
   fi
 
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
@@ -96,10 +93,7 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
     if command -v asdf >/dev/null 2>&1; then
       asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git || true
       asdf plugin add golang https://github.com/asdf-community/asdf-golang.git || true
-      asdf install nodejs latest
-      asdf install golang latest
-      asdf global nodejs latest
-      asdf global golang latest
+      asdf install
     fi
 
     if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
