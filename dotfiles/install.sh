@@ -42,7 +42,7 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update
-    sudo apt-get install -y build-essential curl file git gpg unzip
+    sudo apt-get install -y build-essential curl file git gpg unzip fontconfig
 
     mkdir -p "$HOME/.fonts"
     curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Gohu.zip -o /tmp/Gohu.zip
