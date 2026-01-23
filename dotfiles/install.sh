@@ -42,7 +42,20 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
   if command -v apt-get >/dev/null 2>&1; then
     sudo apt-get update
-    sudo apt-get install -y build-essential curl file git fonts-nerd-fonts gpg
+    sudo apt-get install -y build-essential curl file git gpg unzip
+
+    mkdir -p "$HOME/.fonts"
+    curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Gohu.zip -o /tmp/Gohu.zip
+    unzip /tmp/Gohu.zip -d "$HOME/.fonts"
+    fc-cache -f
+
+    if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+      RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+
+    if [[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
+      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
+    fi
 
     if [[ ! -d "$HOME/.asdf" ]]; then
       git clone https://github.com/asdf-vm/asdf.git "$HOME/.asdf" --branch v0.14.0
@@ -98,16 +111,7 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
       asdf install
     fi
 
-    if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-      RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    fi
-
-    if [[ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
-      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$HOME/.oh-my-zsh/custom/themes/powerlevel10k"
-    fi
-
-
-    echo "Nerd Fonts installed via fonts-nerd-fonts (if available)."
+    echo "Gohu Nerd Font installed."
   else
     if [[ -n "${ID:-}" ]]; then
       echo "Unsupported Linux distro: $ID. Please install dependencies manually."
