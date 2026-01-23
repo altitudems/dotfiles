@@ -46,7 +46,7 @@ elif [[ "$OS_NAME" == "Linux" ]]; then
 
     mkdir -p "$HOME/.fonts"
     curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Gohu.zip -o /tmp/Gohu.zip
-    unzip /tmp/Gohu.zip -d "$HOME/.fonts"
+    unzip -o /tmp/Gohu.zip -d "$HOME/.fonts"
     fc-cache -f
 
     if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
