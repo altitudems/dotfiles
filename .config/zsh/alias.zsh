@@ -1,7 +1,8 @@
-chmod +x ~/.local/bin/fabric
-
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
+
+
 if [[ -n "$CURSOR_AGENT" ]]; then
   # Skip aliases for better compatibility
 else
