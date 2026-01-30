@@ -1,4 +1,4 @@
-chmod +x ~/.local/bin/fabric
+[[ -f ~/.local/bin/fabric ]] && chmod +x ~/.local/bin/fabric
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
