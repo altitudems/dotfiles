@@ -21,8 +21,12 @@ export ZSH="$HOME/.oh-my-zsh"
 if [[ -n "$CURSOR_AGENT" ]]; then
   # Skip theme initialization for better compatibility
 else
-  [[ -r ~/.p10k.zsh ]] && source ~/.p10k.zsh
-  ZSH_THEME="powerlevel10k/powerlevel10k"
+  if [[ -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]]; then
+    ZSH_THEME="powerlevel10k/powerlevel10k"
+    [[ -r ~/.p10k.zsh ]] && source ~/.p10k.zsh
+  else
+    ZSH_THEME="robbyrussell"
+  fi
 fi
 
 # Set list of themes to pick from when loading at random

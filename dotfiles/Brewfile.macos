@@ -1,3 +1,6 @@
 cask "font-gohufont-nerd-font"
 cask "visual-studio-code"
 cask "zed"
+cask "ghostty"
+
+
